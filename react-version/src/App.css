@@ -1,0 +1,26 @@
+.App {
+  text-align: center;
+}
+
+body {
+  background-color: #282c34;
+}
+
+.track {
+  border: 1px solid white;
+  list-style: none;
+}
+
+.track:hover {
+  background-color: #454a55;
+  cursor: pointer;
+}
+.App-header {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
