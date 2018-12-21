@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 
 
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -16,9 +17,8 @@ export default class App extends React.Component {
   componentDidMount() {
     const detail_URL = new URL(window.location);
     const currentURL = detail_URL.href;
-    const API_KEY = 'YzI4ZTZjODUtY2MxMS00YjI1LWE4MDQtMmRiYTNhOTRmOTM4';
-    const API_SECRET = 'MjQ5ZTI0MWMtMzgxYS00ODU3LWE4NDItOTRkMmM2OWU2YTA5';
-    console.log('URL', detail_URL);
+    const API_SECRET = process.env.REACT_APP_API_SECRET;
+    const API_KEY = process.env.REACT_APP_API_KEY;
 
 
     if (detail_URL.search === '') {
@@ -39,7 +39,6 @@ export default class App extends React.Component {
           access_token: result.access_token,
           refresh_token: result.refresh_token
         })
-        console.log(this.state);
       })
       .then(result => {
         return fetch('https://api.napster.com/v2.2/tracks/top?limit=10', {
@@ -66,7 +65,6 @@ export default class App extends React.Component {
             })
             .then(answer => {
               this.setState({ tracks: [...this.state.tracks, {id: track.id, name: track.name, artistName: track.artistName, previewURL: track.previewURL, image: answer.images[0].url}]})
-              console.log(this.state.tracks);
             })
           ))
         })
