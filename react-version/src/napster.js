@@ -12,8 +12,8 @@ import jQuery from 'jquery';
 
   'use strict';
 
-  const Html5Player = require('./html5_player');
-  const FlashPlayer = require('./flash_player');
+  // const Html5Player = require('./html5_player');
+  // const FlashPlayer = require('./flash_player');
 
   if (!exports || !$ || !$.ajax || !JSON) return;
 

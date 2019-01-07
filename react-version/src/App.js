@@ -1,5 +1,4 @@
 import React from 'react';
-// import Napster from './napster';
 import './App.css';
 
 
@@ -21,6 +20,8 @@ export default class App extends React.Component {
     const API_KEY = process.env.REACT_APP_API_KEY;
 
 
+    Napster.init({ consumerKey: API_KEY });
+
     if (detail_URL.search === '') {
       window.location = `https://api.napster.com/oauth/authorize?client_id=${API_KEY}&redirect_uri=${currentURL}&response_type=code`;
     } else if (detail_URL.search.includes('code')) {
@@ -35,6 +36,7 @@ export default class App extends React.Component {
         return result.json();
       })
       .then(result => {
+        console.log('Auth Token:', result.access_token);
         this.setState({
           access_token: result.access_token,
           refresh_token: result.refresh_token
