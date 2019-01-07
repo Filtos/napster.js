@@ -1,7 +1,7 @@
 # napster.js
 
 ## Getting Started
-This SDK has been deprecated in favor of the new and improved [napster.js](https://github.com/Napster/napster.js) SDK. This SDK is now for internal use only and should be merged into the public repo for any changes to be made public.
+Include the [napster.min.js] source in your application after the dependent jQuery library. Once the source is loaded, the library must be initialized with an application key.
 
 
 ```javascript
