@@ -37,7 +37,7 @@ export default class App extends React.Component {
         return result.json();
       })
       .then(result => {
-        console.log('Auth Token:', result.access_token, 'Refresh', result.refresh_token);
+        // console.log('Auth Token:', result.access_token, 'Refresh', result.refresh_token);
 
 
         Napster.player.on('ready', function(e) {
@@ -47,8 +47,6 @@ export default class App extends React.Component {
           });
 
           console.log('napster inside ready', Napster);
-
-          
         });
 
 
@@ -83,19 +81,19 @@ export default class App extends React.Component {
               return answer.json();
             })
             .then(answer => {
+
               Napster.player.queue(track.id);
+
               this.setState({ tracks: [...this.state.tracks, {id: track.id, name: track.name, artistName: track.artistName, previewURL: track.previewURL, image: answer.images[0].url}]});
-              console.log(this.state.tracks);
             })
-          ))
+          ));
         })
       })
     }
   }
 
   render() {
-    const songList = this.state.tracks.map((track) => (
-
+    const songList = this.state.tracks.slice(0).reverse().map((track) => (
       <li key={track.id} className="track" onClick={() => Napster.player.play(track.id)}>
         <img src={track.image} alt="Album Art"></img>
         <p className="track-name">{track.name}</p>
@@ -110,13 +108,12 @@ export default class App extends React.Component {
         <header className="App-header">
           <h1>Fiilpp's napster.js React App</h1>
           <h3>Check Out Top Hits of Today!</h3>
-          <button onClick={() => Napster.player.next()}>Next</button>
-          <button onClick={() => Napster.player.previous()}>Previous</button>
-          {/* <button onClick={() => Napster.player.next} >Next</button> */}
-
-          <button onClick={() => Napster.player.pause()} >Pause</button>
-          <button onClick={() => Napster.player.resume()} >Resume</button>
-          <ul>
+          <section className="Button-container">
+            <button className="Player-button" onClick={() => Napster.player.next()}>Next</button>
+            <button className="Player-button" onClick={() => Napster.player.previous()}>Previous</button>
+            <button className="Player-button" onClick={() => Napster.player.pause()}>Stop</button>
+          </section>
+          <ul className="Track-list">
             {songList}
           </ul>
         </header>

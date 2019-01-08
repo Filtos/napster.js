@@ -15,6 +15,10 @@ body {
   background-color: #454a55;
   cursor: pointer;
 }
+
+.Track-list {
+  padding-left: 0px;
+}
 .App-header {
   background-color: #282c34;
   display: flex;
@@ -23,4 +27,21 @@ body {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+.Player-button {
+  border: 1px solid white;
+  background-color: #282c34;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  height: 30px;
+  width: 100px;
+  display: inline-block;
+  margin: 10px;
+}
+
+.Player-button:hover {
+  background-color: #454a55;
+  cursor: pointer;
 }
