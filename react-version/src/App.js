@@ -46,7 +46,7 @@ export default class App extends React.Component {
             refreshToken: result.refresh_token
           });
 
-          console.log('napster inside ready', Napster);
+          //console.log('napster inside ready', Napster);
         });
 
 
@@ -57,7 +57,7 @@ export default class App extends React.Component {
 
       })
       .then(result => {
-        console.log('heres nap', Napster);
+        //console.log('heres nap', Napster);
         return fetch('https://api.napster.com/v2.2/tracks/top?limit=10', {
           method: 'GET',
           headers: {
