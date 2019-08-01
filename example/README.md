@@ -1,8 +1,8 @@
-# jook.me (rhapsody.js example app)
+ Example app
 
 ### Getting Started
 
-First add the following callback url to the application setting on [developer.rhapsody.com](https://developer.rhapsody.com)
+First add your callback url to the application setting on [developer.rhapsody.com](https://developer.rhapsody.com)
 
 ```
 http://localhost:2000/authorize
@@ -25,5 +25,3 @@ node server.js
 ```
 
 That's it! Once the server application is running you can navigate in the browser to [localhost:2000](http://localhost:2000).
-
-NOTE: Make sure Flash is supported in your browser.

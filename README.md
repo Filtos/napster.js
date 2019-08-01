@@ -6,7 +6,9 @@ Include the [napster.min.js] source in your application after the dependent jQue
 
 ```javascript
 Napster.init({
-  consumerKey: 'foo'
+  consumerKey: 'api_key', // application key of your application
+  isHTML5Compatible: true // (boolean) true if browser supports HTML5 player
+                          // false, flash player will be used instead)
 });
 ```
 
@@ -45,9 +47,19 @@ Napster.player.on('ready', function(e) {
 Napster.player.play('Tra.5156528');
 ```
 
+#### Playing a track with an offset (in seconds)
+```javascript
+Napster.player.play('Tra.5156528', 40);
+```
+
 #### Pausing
 ```javascript
 Napster.player.pause();
+```
+
+#### Resuming a paused track
+```javascript
+Napster.player.resume();
 ```
 
 #### Seek
@@ -78,7 +90,7 @@ Napster.api.get(false, '/tracks/top', function(data) {
 There are a number of interesting playback-related events you can listen for:
 
 * playevent: Starts, pauses, completes, etc.
-* playtimer: Current time, total time, waveform data
+* playtimer: Current time, total time
 * error: Bad things
 * metadata
 * ready
